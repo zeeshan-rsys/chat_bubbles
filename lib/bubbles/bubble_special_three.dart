@@ -11,7 +11,8 @@ import 'package:flutter/material.dart';
 
 class BubbleSpecialThree extends StatelessWidget {
   final bool isSender;
-  final String text;
+  final String? text;
+  final Widget? child;
   final bool tail;
   final Color color;
   final bool sent;
@@ -24,7 +25,8 @@ class BubbleSpecialThree extends StatelessWidget {
     Key? key,
     this.isSender = true,
     this.constraints,
-    required this.text,
+     this.text,
+    this.child,
     this.color = Colors.white70,
     this.tail = true,
     this.sent = false,
@@ -91,8 +93,8 @@ class BubbleSpecialThree extends StatelessWidget {
                   padding: stateTick
                       ? const EdgeInsets.only(left: 4, right: 20)
                       : const EdgeInsets.only(left: 4, right: 4),
-                  child: Text(
-                    text,
+                  child: child ?? Text(
+                    text ?? '',
                     style: textStyle,
                     textAlign: TextAlign.left,
                   ),
